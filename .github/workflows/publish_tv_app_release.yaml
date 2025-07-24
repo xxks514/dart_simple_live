@@ -81,6 +81,7 @@ jobs:
       - name: Upload Release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: "${{ fromJson(steps.version.outputs.content).version }}"
           name: "${{ fromJson(steps.version.outputs.content).version }}"
           body: "# Android TV \n${{ fromJson(steps.version.outputs.content).version_desc }}"
           prerelease: ${{ fromJson(steps.version.outputs.content).prerelease }}
